@@ -1,5 +1,6 @@
 package com.DrynessTracker.PopupTrackers;
 
+import com.DrynessTracker.DrynessConfig;
 import net.runelite.api.Client;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.widgets.Widget;
@@ -50,6 +51,11 @@ public class Barrows extends PopupRewardTrackerBase {
     }
 
     @Override
+    public int GetItemChestId() {
+        return DrynessConfig.NO_ID_PROVIDED;
+    }
+
+    @Override
     public ArrayList<Integer> GetUniqueItemIds() {
         return _items;
     }
@@ -67,6 +73,8 @@ public class Barrows extends PopupRewardTrackerBase {
     @Override
     public ArrayList<Integer> GetRewardItemIds(Client client) {
         var rewardPopup = client.getWidget(InterfaceID.BarrowsReward.ITEMS);
+
+        // Barrows populates the interface items as children
         var items = rewardPopup.getChildren();
         var rewardIds = new ArrayList<Integer>(0);
 

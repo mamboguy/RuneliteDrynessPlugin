@@ -13,6 +13,11 @@ public interface IPopupRewardTracker {
     public int GetInterfaceId();
 
     /**
+     * Interface id for the reward chest
+     */
+    public int GetItemChestId();
+
+    /**
      * The list of items to search for in the inventory
      * Full list at:  https://oldschool.runescape.wiki/w/Item_IDs
      */

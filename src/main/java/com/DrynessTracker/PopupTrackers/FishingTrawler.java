@@ -26,6 +26,11 @@ public class FishingTrawler extends PopupRewardTrackerBase{
     }
 
     @Override
+    public int GetItemChestId() {
+        return InventoryID.TRAWLER_REWARDINV;
+    }
+
+    @Override
     public ArrayList<Integer> GetUniqueItemIds() {
         return _items;
     }

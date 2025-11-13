@@ -4,7 +4,6 @@ import net.runelite.api.Client;
 import net.runelite.api.Item;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.gameval.InventoryID;
-import net.runelite.api.widgets.Widget;
 
 import java.util.ArrayList;
 
@@ -34,6 +33,11 @@ public class PerilousMoons extends PopupRewardTrackerBase {
     @Override
     public int GetInterfaceId() {
         return InterfaceID.PMOON_REWARD;
+    }
+
+    @Override
+    public int GetItemChestId() {
+        return InventoryID.PMOON_REWARDINV;
     }
 
     @Override
