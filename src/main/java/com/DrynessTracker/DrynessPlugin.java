@@ -8,6 +8,9 @@ import com.DrynessTracker.PopupTrackers.PerilousMoons;
 import com.google.gson.Gson;
 import com.google.inject.Provides;
 import javax.inject.Inject;
+import javax.inject.Named;
+
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
@@ -36,7 +39,6 @@ import java.util.ArrayList;
 public class DrynessPlugin extends Plugin {
     private static final Logger log = LoggerFactory.getLogger(DrynessPlugin.class);
     private static final String PLUGIN_NAME = "Dryness Tracker - ";
-    private static final boolean DEBUG = true;
 
     @Inject
     private Client _client;
@@ -52,6 +54,11 @@ public class DrynessPlugin extends Plugin {
 
     @Inject
     DrynessConfig _config;
+
+    @Getter
+    @Inject
+    @Named("developerMode")
+    private boolean developerMode;
 
     private ArrayList<IPopupRewardTracker> _popupTrackers;
     private ArrayList<IItemSpawnTracker> _itemSpawnTrackers;
@@ -159,7 +166,7 @@ public class DrynessPlugin extends Plugin {
     }
 
     private void SendDebugMessage(String message) {
-        if (DEBUG) {
+        if (isDeveloperMode()) {
             _chatMessageManager.queue(
                     QueuedMessage.builder()
                             .type(ChatMessageType.CONSOLE)
