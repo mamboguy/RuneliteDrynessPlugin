@@ -66,19 +66,6 @@ public interface DrynessConfig extends Config
     }
 
     @ConfigItem(
-            keyName = "ShowItemContainerId",
-            name = "Show Item Container Ids",
-            description = "Show the ids of any item containers that change",
-            position = 1020,
-            section = Debug
-    )
-
-    default boolean ShowItemContainerId()
-    {
-        return false;
-    }
-
-    @ConfigItem(
             keyName = "ShowItemSpawnType",
             name = "Show item spawn type?",
             description = "Shows whether items are stored in widget or a chest",
